@@ -3,7 +3,7 @@ import { FETCH_SECRETS_BEGIN, FETCH_SECRETS_SUCCESS, FETCH_SECRETS_FAILURE } fro
 export function fetchSecrets() {
   return dispatch => {
     dispatch(fetchSecretsBegin());
-    return fetch(`http://localhost:3001/api/recipients`)
+    return fetch(`http://localhost:3001/api/secrets`)
       .then(response => response.json())
       .then(secretData => {
         dispatch(fetchSecretsSuccess(secretData));
