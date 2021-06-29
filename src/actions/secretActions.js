@@ -1,4 +1,4 @@
-import { FETCH_SECRETS_BEGIN, FETCH_SECRETS_SUCCESS, FETCH_SECRETS_FAILURE } from '../constants/ActionTypes';
+import { FETCH_SECRETS_BEGIN, GET_FETCH_SECRETS_SUCCESS, GET_FETCH_SECRETS_FAILURE } from '../constants/ActionTypes';
 import URL from '../constants/api';
 
 export function fetchSecrets() {
@@ -7,9 +7,9 @@ export function fetchSecrets() {
     return fetch(URL)
       .then(response => response.json())
       .then(secretData => {
-        dispatch(fetchSecretsSuccess(secretData));
+        dispatch(getFetchSecretsSuccess(secretData));
       })
-      .catch(error => dispatch(fetchSecretsFailure(error)));
+      .catch(error => dispatch(getFetchSecretsFailure(error)));
   }
 };
 
@@ -17,12 +17,12 @@ export const fetchSecretsBegin = () => ({
   type: FETCH_SECRETS_BEGIN
 });
 
-export const fetchSecretsSuccess = secretData => ({
-  type: FETCH_SECRETS_SUCCESS,
+export const getFetchSecretsSuccess = secretData => ({
+  type: GET_FETCH_SECRETS_SUCCESS,
   payload: secretData
 });
 
-export const fetchSecretsFailure = error => ({
-  type: FETCH_SECRETS_FAILURE,
+export const getFetchSecretsFailure = error => ({
+  type: GET_FETCH_SECRETS_FAILURE,
   payload: error
 });
