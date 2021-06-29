@@ -1,15 +1,21 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSecrets } from '../actions/secretActions';
+import SecretList from '../components/SecretList';
 
 class SecretContainer extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchSecrets());
+    this.props.fetchSecrets();
   }
   
   render() {
-    return null
+    debugger
+    return <SecretList secrets={this.props.list} />
   }
 }
 
-export default connect()(SecretContainer);
+const mapStateToProps = (state) => {
+  return { secrets: state.secrets }
+}
+
+export default connect(mapStateToProps, { fetchSecrets })(SecretContainer);
