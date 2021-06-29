@@ -1,3 +1,3 @@
-const SecretListItem = props => <p>{props.secret.text}</p>
+const SecretListItem = props => <p>{props.secret.content}</p>
 
 export default SecretListItem;

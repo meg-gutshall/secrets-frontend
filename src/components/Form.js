@@ -5,13 +5,13 @@ const Form = props => {
       <form onSubmit={props.handleSubmit}>
         <input 
           type="textarea"
-          name="text"
+          name="content"
           onChange={props.handleChange}
           value={props.formData.text}
         />
         <input 
-          type="textarea"
-          name="text"
+          type="text"
+          name="tag"
           onChange={props.handleChange}
           value={props.formData.tag}
         />
