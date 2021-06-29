@@ -9,13 +9,42 @@ class SecretContainer extends Component {
   }
   
   render() {
-    debugger
-    return <SecretList secrets={this.props.list} />
+    const { isLoading, secretsList } = this.props;
+
+    if (isLoading) {
+      return (
+        <div>
+          <iframe
+            src="https://giphy.com/embed/QPQ3xlJhqR1BXl89RG"
+            width="480"
+            height="400"
+            frameBorder="0"
+            className="giphy-embed"
+            alt="Stanley from The Office"
+            title="Stanley from The Office"
+            allowFullScreen
+          ></iframe>
+          <p>
+            <a href="https://giphy.com/gifs/QPQ3xlJhqR1BXl89RG">via GIPHY</a>
+          </p>
+        </div>
+      )
+    }
+
+    return (
+      <>
+        <h1>Secrets</h1>
+        <SecretList secrets={secretsList} />
+      </>
+    )
   }
 }
 
-const mapStateToProps = (state) => {
-  return { secrets: state.secrets }
+const mapStateToProps = state => {
+  return { 
+    secretsList: state.secrets.list,
+    isLoading: state.secrets.isLoading
+  }
 }
 
 export default connect(mapStateToProps, { fetchSecrets })(SecretContainer);

@@ -2,7 +2,8 @@ import { FETCH_SECRETS_BEGIN, FETCH_SECRETS_SUCCESS, FETCH_SECRETS_FAILURE } fro
 
 const initialState = {
   list: [],
-  allIds: []
+  allIds: [],
+  isLoading: true
 }
 
 const secretReducer = function reducer(
@@ -11,14 +12,18 @@ const secretReducer = function reducer(
 ) {
   switch (action.type) {
     case FETCH_SECRETS_BEGIN:
-      return state;
+      return {
+        ...state,
+        isLoading: true
+      };
     case FETCH_SECRETS_SUCCESS:
       let sIds = action.payload.data.map(secret => parseInt(secret.id, 10));
       let sData = action.payload.data.map(secret => secret.attributes);
       return {
         ...state,
         list: sData,
-        allIds: sIds
+        allIds: sIds,
+        isLoading: false
       };
     case FETCH_SECRETS_FAILURE:
       return action.payload;
