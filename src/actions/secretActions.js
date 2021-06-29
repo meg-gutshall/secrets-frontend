@@ -1,9 +1,10 @@
 import { FETCH_SECRETS_BEGIN, FETCH_SECRETS_SUCCESS, FETCH_SECRETS_FAILURE } from '../constants/ActionTypes';
+import URL from '../constants/api';
 
 export function fetchSecrets() {
   return dispatch => {
     dispatch(fetchSecretsBegin());
-    return fetch(`http://localhost:3001/api/secrets`)
+    return fetch(URL)
       .then(response => response.json())
       .then(secretData => {
         dispatch(fetchSecretsSuccess(secretData));
