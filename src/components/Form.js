@@ -5,18 +5,21 @@ const Form = props => {
       <form onSubmit={props.handleSubmit}>
         <label htmlFor="secretContent">Confess your secret here:</label><br/>
         <textarea
+          required
           id="secretContent"
           name="content"
           onChange={props.handleChange}
-          value={props.formData.text}
+          value={props.formData.content || ''}
         ></textarea><br/>
         <label htmlFor="secretTag">Choose a tag:</label><br/>
         <select
+          required
           id="secretTag"
           name="tag"
-          value={props.formData.tag}
           onChange={props.handleChange}
+          value={props.formData.tag}
         >
+          <option value="">Choose one</option>
           <option value="juicy">juicy</option>
           <option value="silly">silly</option>
           <option value="dirty">dirty</option>
