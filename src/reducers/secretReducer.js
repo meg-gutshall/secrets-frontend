@@ -1,4 +1,4 @@
-import { FETCH_SECRETS_BEGIN, GET_FETCH_SECRETS_SUCCESS, GET_FETCH_SECRETS_FAILURE } from '../constants/ActionTypes';
+import { BEGIN_FETCH, GET_SECRETS_SUCCESS, GET_SECRETS_FAILURE, POST_SECRET_SUCCESS, POST_SECRET_FAILURE } from '../constants/ActionTypes';
 
 const initialState = {
   list: [],
@@ -11,12 +11,12 @@ const secretReducer = function reducer(
   action
 ) {
   switch (action.type) {
-    case FETCH_SECRETS_BEGIN:
+    case BEGIN_FETCH:
       return {
         ...state,
         isLoading: true
       };
-    case GET_FETCH_SECRETS_SUCCESS:
+    case GET_SECRETS_SUCCESS:
       let sIds = action.payload.data.map(secret => parseInt(secret.id, 10));
       let sData = action.payload.data.map(secret => secret.attributes);
       return {
@@ -24,7 +24,7 @@ const secretReducer = function reducer(
         allIds: [...state.allIds, ...sIds],
         isLoading: false
       };
-    case GET_FETCH_SECRETS_FAILURE:
+    case GET_SECRETS_FAILURE:
       return action.payload;
     default:
       return state;
