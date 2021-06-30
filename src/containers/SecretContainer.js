@@ -33,7 +33,6 @@ class SecretContainer extends Component {
 
     return (
       <div>
-        <h2>All Secrets</h2>
         <SecretList secrets={secretsList} />
       </div>
     )
