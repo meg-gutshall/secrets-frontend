@@ -13,10 +13,19 @@ export function fetchSecrets() {
   }
 };
 
-export function postSecret() {
+export function postSecret(newSecret) {
   return dispatch => {
     dispatch(beginFetch());
-    return fetch(URL)
+    const configObj = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify(newSecret)
+    }
+    return fetch(URL, configObj)
       .then(response => response.json())
       .then(secretData => {
         dispatch(postSecretSuccess(secretData));
