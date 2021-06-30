@@ -26,6 +26,15 @@ const secretReducer = function reducer(
       };
     case GET_SECRETS_FAILURE:
       return action.payload;
+    case POST_SECRET_SUCCESS:
+      let sId = parseInt(action.payload.data.id, 10);
+      return {
+        list: state.list.concat(action.payload.data.attributes),
+        allIds: state.allIds.concat(sId),
+        isLoading: false
+      };
+    case POST_SECRET_FAILURE:
+      return action.payload;
     default:
       return state;
   }

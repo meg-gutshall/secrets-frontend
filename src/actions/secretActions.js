@@ -19,9 +19,9 @@ export function postSecret() {
     return fetch(URL)
       .then(response => response.json())
       .then(secretData => {
-        dispatch(getSecretsSuccess(secretData));
+        dispatch(postSecretSuccess(secretData));
       })
-      .catch(error => dispatch(getSecretsFailure(error)));
+      .catch(error => dispatch(postSecretFailure(error)));
   }
 };
 
@@ -39,12 +39,12 @@ export const getSecretsFailure = error => ({
   payload: error
 });
 
-export const postSecretsSuccess = secretData => ({
+export const postSecretSuccess = secretData => ({
   type: POST_SECRET_SUCCESS,
   payload: secretData
 });
 
-export const postSecretsFailure = error => ({
+export const postSecretFailure = error => ({
   type: POST_SECRET_FAILURE,
   payload: error
 });

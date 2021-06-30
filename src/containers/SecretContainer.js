@@ -31,6 +31,7 @@ class SecretContainer extends Component {
       )
     }
 
+    // SecretList can take care of filtering as well
     return (
       <div>
         <h2>All Secrets</h2>
