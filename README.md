@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# SECRETS
+
+See the backend repo: [https://github.com/meg-gutshall/secrets-backend](https://github.com/meg-gutshall/secrets-backend)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
