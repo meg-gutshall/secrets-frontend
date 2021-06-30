@@ -12,6 +12,7 @@ const Form = props => {
         ></textarea><br/>
         <label htmlFor="secretTag">Choose a tag:</label><br/>
         <select
+          id="secretTag"
           name="tag"
           value={props.formData.tag}
           onChange={props.handleChange}
