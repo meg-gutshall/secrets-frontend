@@ -1,15 +1,12 @@
 import { Component } from 'react';
-import SecretContainer from './containers/SecretContainer';
-import FormContainer from './containers/FormContainer';
+import Routes from './components/Routes';
 import './App.css';
 
 export class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Secrets</h1>
-        <FormContainer />
-        <SecretContainer />
+        <Routes />
       </div>
     );
   }
