@@ -20,8 +20,8 @@ const secretReducer = function reducer(
       let sIds = action.payload.data.map(secret => parseInt(secret.id, 10));
       let sData = action.payload.data.map(secret => secret.attributes);
       return {
-        list: [...state.list, ...sData],
-        allIds: [...state.allIds, ...sIds],
+        list: sData,
+        allIds: sIds,
         isLoading: false
       };
     case GET_SECRETS_FAILURE:
