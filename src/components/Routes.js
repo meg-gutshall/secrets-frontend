@@ -7,6 +7,7 @@ import Nav from './Nav';
 const Routes = () => (
   <Router>
     <Nav />
+    <Route exact path='/' component={Secrets} /> 
     <Route path='/secrets/about' component={About} />
     <Route path='/secrets/new' component={NewSecret} />
     <Route exact path='/secrets' component={Secrets} />
