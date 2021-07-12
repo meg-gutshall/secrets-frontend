@@ -17,10 +17,10 @@ const secretReducer = function reducer(
         isLoading: true
       };
     case GET_SECRETS_SUCCESS:
-      let sIds = action.payload.data.map(secret => parseInt(secret.id, 10));
-      let sData = action.payload.data.map(secret => secret.attributes);
+      let secretsArray = action.payload.data;
+      let sIds = secretsArray.map(secret => parseInt(secret.id, 10));
       return {
-        list: sData,
+        byId: secretsArray.reduce((acc, cv) => ({...acc, [cv.id]: cv}), {}),
         allIds: sIds,
         isLoading: false
       };
