@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { postSecret } from '../actions/secretActions';
+import { postSecret } from '../actions/allActions';
 import Form from '../components/Form';
 
 class FormContainer extends Component {

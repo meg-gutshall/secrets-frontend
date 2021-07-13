@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSecrets } from '../actions/secretActions';
+import { fetchSecrets } from '../actions/allActions';
 import SecretList from '../components/SecretList';
 
 class SecretContainer extends Component {
