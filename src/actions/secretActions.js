@@ -1,4 +1,4 @@
-import { BEGIN_FETCH, GET_SECRETS_SUCCESS, GET_SECRETS_FAILURE, POST_SECRET_SUCCESS, POST_SECRET_FAILURE } from '../constants/ActionTypes';
+import { BEGIN_FETCH, GET_TAGS_SUCCESS, GET_TAGS_FAILURE, POST_TAG_SUCCESS, POST_TAG_FAILURE, GET_SECRETS_SUCCESS, GET_SECRETS_FAILURE, POST_SECRET_SUCCESS, POST_SECRET_FAILURE } from '../constants/ActionTypes';
 import URL from '../constants/api';
 
 export function fetchSecrets() {
@@ -8,8 +8,12 @@ export function fetchSecrets() {
       .then(response => response.json())
       .then(secretData => {
         dispatch(getSecretsSuccess(secretData));
+        dispatch(getTagsSuccess(secretData));
       })
-      .catch(error => dispatch(getSecretsFailure(error)));
+      .catch(error => {
+        dispatch(getSecretsFailure(error));
+        dispatch(getTagsFailure(error));
+      });
   }
 };
 
@@ -29,8 +33,12 @@ export function postSecret(newSecret) {
       .then(response => response.json())
       .then(secretData => {
         dispatch(postSecretSuccess(secretData));
+        dispatch(postTagSuccess(secretData));
       })
-      .catch(error => dispatch(postSecretFailure(error)));
+      .catch(error => {
+        dispatch(postSecretFailure(error));
+        dispatch(postTagFailure(error));
+      });
   }
 };
 
@@ -55,5 +63,25 @@ export const postSecretSuccess = secretData => ({
 
 export const postSecretFailure = error => ({
   type: POST_SECRET_FAILURE,
+  payload: error
+});
+
+export const getTagsSuccess = secretData => ({
+  type: GET_TAGS_SUCCESS,
+  payload: secretData
+});
+
+export const getTagsFailure = error => ({
+  type: GET_TAGS_FAILURE,
+  payload: error
+});
+
+export const postTagSuccess = secretData => ({
+  type: POST_TAG_SUCCESS,
+  payload: secretData
+});
+
+export const postTagFailure = error => ({
+  type: POST_TAG_FAILURE,
   payload: error
 });
