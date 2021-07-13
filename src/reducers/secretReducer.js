@@ -1,7 +1,7 @@
 import { BEGIN_FETCH, GET_SECRETS_SUCCESS, GET_SECRETS_FAILURE, POST_SECRET_SUCCESS, POST_SECRET_FAILURE } from '../constants/ActionTypes';
 
 const initialState = {
-  list: [],
+  byId: {},
   allIds: [],
   isLoading: true
 }
@@ -17,10 +17,9 @@ const secretReducer = function reducer(
         isLoading: true
       };
     case GET_SECRETS_SUCCESS:
-      let secretsArray = action.payload.data;
-      let sIds = secretsArray.map(secret => parseInt(secret.id, 10));
+      let sIds = action.payload.data.map(secret => parseInt(secret.id, 10));
       return {
-        byId: secretsArray.reduce((acc, cv) => ({...acc, [cv.id]: cv}), {}),
+        byId: action.payload.data.reduce((acc, cv) => ({...acc, [cv.id]: cv.attributes}), {}),
         allIds: sIds,
         isLoading: false
       };
@@ -29,7 +28,10 @@ const secretReducer = function reducer(
     case POST_SECRET_SUCCESS:
       let sId = parseInt(action.payload.data.id, 10);
       return {
-        list: state.list.concat(action.payload.data.attributes),
+        byId: {
+          ...state.byId,
+          sId: action.payload.data.attributes
+        },
         allIds: state.allIds.concat(sId),
         isLoading: false
       };
