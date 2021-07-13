@@ -3,7 +3,9 @@ import { Component } from 'react';
 class Filter extends Component {
   render () {
     return (
-      <div></div>
+      <div>
+        <h2>Filters</h2>
+      </div>
     )
   }
 }
