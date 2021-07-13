@@ -9,7 +9,7 @@ class SecretContainer extends Component {
   }
   
   render() {
-    const { isLoading, secretsList } = this.props;
+    const { isLoading, allSecrets } = this.props;
 
     if (isLoading) {
       return (
@@ -34,7 +34,7 @@ class SecretContainer extends Component {
     // SecretList can take care of filtering as well
     return (
       <div>
-        <SecretList secrets={secretsList} />
+        <SecretList allSecrets={allSecrets} />
       </div>
     )
   }
@@ -42,7 +42,7 @@ class SecretContainer extends Component {
 
 const mapStateToProps = state => {
   return { 
-    secretsList: state.secrets.list,
+    allSecrets: state.secrets.byId,
     isLoading: state.secrets.isLoading
   }
 }

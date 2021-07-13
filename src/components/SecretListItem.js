@@ -1,7 +1,14 @@
-const spanStyle = {
-  paddingLeft: '30px',
+const spanStyleTags = {
+  paddingLeft: '3rem',
   fontWeight: 'bold'
 }
-const SecretListItem = props => <p>{props.secret.content} <span style={spanStyle}>{props.secret.tag}</span></p>
+const spanStyleTag = {
+  paddingRight: '1rem'
+}
+
+const SecretListItem = props => {
+  const tags = props.secret.tags.map(tag => <span style={spanStyleTag}>{tag.name}</span>)
+  return <p>{props.secret.content} <span style={spanStyleTags}>{tags}</span></p>
+}
 
 export default SecretListItem;
