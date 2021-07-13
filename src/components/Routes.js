@@ -3,6 +3,7 @@ import Secrets from './Secrets';
 import NewSecret from './NewSecret';
 import About from './About';
 import Nav from './Nav';
+import WordCounter from './WordCounter';
 
 const Routes = () => (
   <Router>
@@ -11,6 +12,7 @@ const Routes = () => (
     <Route path='/secrets/about' component={About} />
     <Route path='/secrets/new' component={NewSecret} />
     <Route exact path='/secrets' component={Secrets} />
+    <Route exact path='/word-counter' component={WordCounter} />
   </Router>
 )
 
