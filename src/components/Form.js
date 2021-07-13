@@ -3,7 +3,7 @@ const Form = props => {
     <div>
       <h2>What's Your Secret?</h2>
       <form onSubmit={props.handleSubmit}>
-        <label htmlFor="secretContent">Confess your secret here:</label><br/>
+        <label htmlFor="secretContent">Spill your secret here:</label><br/>
         <textarea
           required
           id="secretContent"
@@ -25,7 +25,7 @@ const Form = props => {
           <option value="dirty">dirty</option>
           <option value="deep">deep</option>
         </select><br/>
-        <button type="submit">Submit</button>
+        <button type="submit">Confess</button>
       </form>
     </div>
   )
