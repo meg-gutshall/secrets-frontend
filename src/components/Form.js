@@ -1,3 +1,5 @@
+import FormCheckbox from "./FormCheckbox"
+
 const Form = props => {
   return (
     <div>
@@ -8,24 +10,12 @@ const Form = props => {
           required
           id="secretContent"
           name="content"
-          onChange={props.handleChange}
-          value={props.formData.content || ''}
+          onChange={props.handleContent}
+          value={props.content || ''}
         ></textarea><br/>
         <label htmlFor="secretTag">Choose a tag</label><br/>
-        <select
-          required
-          id="secretTag"
-          name="tag"
-          onChange={props.handleChange}
-          value={props.formData.tag}
-        >
-          <option value="">Choose one</option>
-          <option value="juicy">juicy</option>
-          <option value="silly">silly</option>
-          <option value="dirty">dirty</option>
-          <option value="deep">deep</option>
-        </select><br/><br/>
-        <button type="submit">Confess</button>
+        <FormCheckbox /><br/>
+        <button type="submit">Confess</button><br/>
       </form>
     </div>
   )
