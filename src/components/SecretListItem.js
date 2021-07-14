@@ -7,7 +7,7 @@ const spanStyleTag = {
 }
 
 const SecretListItem = props => {
-  const tags = props.secret.tags.map(tag => <span style={spanStyleTag}>{tag.name}</span>)
+  const tags = props.secret.tags.map(tag => <span key={tag.id} style={spanStyleTag}>{tag.name}</span>)
   return <p>{props.secret.content} <span style={spanStyleTags}>{tags}</span></p>
 }
 
