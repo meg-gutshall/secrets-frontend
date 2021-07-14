@@ -3,7 +3,7 @@ const Form = props => {
     <div>
       <h2>What's Your Secret?</h2>
       <form onSubmit={props.handleSubmit}>
-        <label htmlFor="secretContent">Spill your secret here:</label><br/>
+        <label htmlFor="secretContent">Spill your secret here</label><br/>
         <textarea
           required
           id="secretContent"
@@ -11,7 +11,7 @@ const Form = props => {
           onChange={props.handleChange}
           value={props.formData.content || ''}
         ></textarea><br/>
-        <label htmlFor="secretTag">Choose a tag:</label><br/>
+        <label htmlFor="secretTag">Choose a tag</label><br/>
         <select
           required
           id="secretTag"
@@ -24,7 +24,7 @@ const Form = props => {
           <option value="silly">silly</option>
           <option value="dirty">dirty</option>
           <option value="deep">deep</option>
-        </select><br/>
+        </select><br/><br/>
         <button type="submit">Confess</button>
       </form>
     </div>

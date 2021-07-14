@@ -31,7 +31,6 @@ class SecretContainer extends Component {
       )
     }
 
-    // SecretList can take care of filtering as well
     return (
       <div>
         <SecretList allSecrets={allSecrets} />
@@ -41,7 +40,7 @@ class SecretContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { 
+  return {
     allSecrets: state.secrets.byId,
     isLoading: state.secrets.isLoading
   }
